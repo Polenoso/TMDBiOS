@@ -21,4 +21,5 @@ struct Film {
         self.release_date = dictionary["release_date"] as! String
         self.title = dictionary["title"] as! String
     }
+
 }
