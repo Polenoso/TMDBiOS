@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B70138E0A4B2D2BF30B8713 /* Pods_theiostmdb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */; };
 		AE3344661E72C46400997CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344651E72C46400997CB5 /* AppDelegate.swift */; };
 		AE3344681E72C46400997CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344671E72C46400997CB5 /* ViewController.swift */; };
 		AE33446B1E72C46400997CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3344691E72C46400997CB5 /* Main.storyboard */; };
 		AE33446D1E72C46400997CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE33446C1E72C46400997CB5 /* Assets.xcassets */; };
 		AE3344701E72C46400997CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE33446E1E72C46400997CB5 /* LaunchScreen.storyboard */; };
+		AE33447C1E72C60000997CB5 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33447B1E72C60000997CB5 /* Film.swift */; };
+		AE33447E1E72D1DA00997CB5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33447D1E72D1DA00997CB5 /* NetworkService.swift */; };
+		AE3344801E72D26600997CB5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE33447F1E72D26600997CB5 /* Alamofire.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32A74015F79131E9FB3AED2D /* Pods-theiostmdb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theiostmdb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb.debug.xcconfig"; sourceTree = "<group>"; };
+		6918F77D5A0F94F6F77A0B9A /* Pods-theiostmdb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theiostmdb.release.xcconfig"; path = "Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb.release.xcconfig"; sourceTree = "<group>"; };
+		93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theiostmdb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344621E72C46400997CB5 /* theiostmdb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theiostmdb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344651E72C46400997CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE3344671E72C46400997CB5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +29,9 @@
 		AE33446C1E72C46400997CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE33446F1E72C46400997CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE3344711E72C46400997CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE33447B1E72C60000997CB5 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
+		AE33447D1E72D1DA00997CB5 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		AE33447F1E72D26600997CB5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/theiostmdb-fvjkphqtoxbbovaddardbppgotil/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE3344801E72D26600997CB5 /* Alamofire.framework in Frameworks */,
+				1B70138E0A4B2D2BF30B8713 /* Pods_theiostmdb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		79A2A3DD80CD55E90B490F62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32A74015F79131E9FB3AED2D /* Pods-theiostmdb.debug.xcconfig */,
+				6918F77D5A0F94F6F77A0B9A /* Pods-theiostmdb.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AE3344591E72C46400997CB5 = {
 			isa = PBXGroup;
 			children = (
 				AE3344641E72C46400997CB5 /* theiostmdb */,
 				AE3344631E72C46400997CB5 /* Products */,
+				79A2A3DD80CD55E90B490F62 /* Pods */,
+				F1857F5BD941C7E4903CC8EA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +77,7 @@
 		AE3344641E72C46400997CB5 /* theiostmdb */ = {
 			isa = PBXGroup;
 			children = (
+				AE33447A1E72C5D100997CB5 /* Protocol */,
 				AE3344791E72C59400997CB5 /* View */,
 				AE3344781E72C58D00997CB5 /* Model */,
 				AE3344771E72C57C00997CB5 /* NetworkService */,
@@ -70,6 +94,7 @@
 		AE3344771E72C57C00997CB5 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
+				AE33447D1E72D1DA00997CB5 /* NetworkService.swift */,
 			);
 			name = NetworkService;
 			sourceTree = "<group>";
@@ -77,6 +102,7 @@
 		AE3344781E72C58D00997CB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AE33447B1E72C60000997CB5 /* Film.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -88,6 +114,22 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		AE33447A1E72C5D100997CB5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		F1857F5BD941C7E4903CC8EA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AE33447F1E72D26600997CB5 /* Alamofire.framework */,
+				93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE3344741E72C46400997CB5 /* Build configuration list for PBXNativeTarget "theiostmdb" */;
 			buildPhases = (
+				DA40B69C7F1EEBB30118D07C /* [CP] Check Pods Manifest.lock */,
 				AE33445E1E72C46400997CB5 /* Sources */,
 				AE33445F1E72C46400997CB5 /* Frameworks */,
 				AE3344601E72C46400997CB5 /* Resources */,
+				23ACA24731012323A20B6CF2 /* [CP] Embed Pods Frameworks */,
+				6FCF0D00D7F15613B9B35B26 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,12 +199,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		23ACA24731012323A20B6CF2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6FCF0D00D7F15613B9B35B26 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA40B69C7F1EEBB30118D07C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AE33445E1E72C46400997CB5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AE3344681E72C46400997CB5 /* ViewController.swift in Sources */,
+				AE33447C1E72C60000997CB5 /* Film.swift in Sources */,
+				AE33447E1E72D1DA00997CB5 /* NetworkService.swift in Sources */,
 				AE3344661E72C46400997CB5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,6 +378,7 @@
 		};
 		AE3344751E72C46400997CB5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32A74015F79131E9FB3AED2D /* Pods-theiostmdb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = theiostmdb/Info.plist;
@@ -295,6 +391,7 @@
 		};
 		AE3344761E72C46400997CB5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6918F77D5A0F94F6F77A0B9A /* Pods-theiostmdb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = theiostmdb/Info.plist;
@@ -324,6 +421,7 @@
 				AE3344761E72C46400997CB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
