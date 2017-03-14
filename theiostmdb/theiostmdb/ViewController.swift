@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         ai?.color = UIColor.white
         ai!.startAnimating()
         self.view.reloadInputViews()
-        NetworkService.shared.discoverMovies{response in
+        NetworkService.shared.discoverMovies(page: 1, completionHandler: {response in
             if let response = response as? [Film]{
                 self.ai!.stopAnimating()
                 self.ai?.removeFromSuperview()
@@ -37,7 +37,9 @@ class ViewController: UIViewController {
                 }
                 
             }
-        }
+        }, errorHandler: {error in
+            NSLog(error)
+        })
     }
 
     override func didReceiveMemoryWarning() {

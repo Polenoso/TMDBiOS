@@ -15,16 +15,16 @@ class NetworkService : NSObject {
     let base_url = "https://api.themoviedb.org/3/"
     let images_url = "https://image.tmdb.org/t/p/w500/"
     let discover_url = "discover/movie?api_key=71fbe398f71c98f66552653199f9f592&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1"
+    let discover_url2 = "discover/movie"
     let search_url = "https://api.themoviedb.org/3/search/movie?api_key=71fbe398f71c98f66552653199f9f592&language=en-US&query=%2$s&page=%3$s&amp;include_adult=false"
     
     static let shared : NetworkService = NetworkService()
     
-    func discoverMovies(completionHandler: @escaping ([Film]) -> Void){
-         print("thread: \(Thread.current) is main thread: \(Thread.isMainThread)")
-            Alamofire.request("\(self.base_url)\(self.discover_url)",method: .get,parameters: self.discoverParams(),encoding: JSONEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
-                print("Parsing thread: \(Thread.current) is main thread: \(Thread.isMainThread)")
+    func discoverMovies(page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
+        Alamofire.request("\(self.base_url)\(self.discover_url2)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
+                NSLog("DiscoverRequest Reached")
                 let object = response.result.value as! [String : Any]
-                let results = object["results"] as! [[String: Any]]
+            if let results = object["results"] as? [[String: Any]]{
                 var films = [Film]()
                 for i in 0..<results.count{
                     films.append(Film.init(dictionary: results[i] as [String : AnyObject]))
@@ -33,9 +33,13 @@ class NetworkService : NSObject {
                     print("Response thread: \(Thread.current) is main thread: \(Thread.isMainThread)")
                     completionHandler(films)
                 }
-                
-            })
+            }else{
+                errorHandler(String(describing: response.result.value));
+            }
+            
+        })
     }
+    
     
     func convertToDictionary(text: String) -> [[String: Any]]? {
         if let data = text.data(using: .utf8) {
@@ -48,13 +52,13 @@ class NetworkService : NSObject {
         return nil
     }
     
-    func discoverParams() -> Dictionary<String,Any>{
-        let params: Dictionary<String, Any> = [
-        "api_key" : "\(self.api_key)",
-        "language" : "en-US",
-        "sort_by" : "popularity.desc",
-        "include_adult" : "false",
-        "page" : "1"
+    func discoverParams(page : Int) -> Dictionary<String,AnyObject>{
+        let params: Dictionary<String, AnyObject> = [
+        "api_key" : self.api_key as AnyObject,
+        "language" : "en-US" as AnyObject,
+        "sort_by" : "popularity.desc" as AnyObject,
+        "include_adult" : "false" as AnyObject,
+        "page" : String(page) as AnyObject
             ]
         return params
     }

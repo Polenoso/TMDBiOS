@@ -77,7 +77,7 @@
 		AE3344641E72C46400997CB5 /* theiostmdb */ = {
 			isa = PBXGroup;
 			children = (
-				AE33447A1E72C5D100997CB5 /* Protocol */,
+				AEBEAC801E78121E00992CDF /* ViewModel */,
 				AE3344791E72C59400997CB5 /* View */,
 				AE3344781E72C58D00997CB5 /* Model */,
 				AE3344771E72C57C00997CB5 /* NetworkService */,
@@ -114,11 +114,11 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		AE33447A1E72C5D100997CB5 /* Protocol */ = {
+		AEBEAC801E78121E00992CDF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Protocol;
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		F1857F5BD941C7E4903CC8EA /* Frameworks */ = {
