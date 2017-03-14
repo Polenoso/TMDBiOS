@@ -2,13 +2,13 @@
 //  ViewController.swift
 //  theiostmdb
 //
-//  Created by davidjose gutierrez calderon  on 10/3/17.
+//  Created by aitor pagan  on 10/3/17.
 //
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
     
     let ai: UIActivityIndicatorView? = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     let separation: CGFloat = 50.0
@@ -38,7 +38,9 @@ class ViewController: UIViewController {
                 
             }
         }, errorHandler: {error in
-            NSLog(error)
+            self.ai!.stopAnimating()
+            self.ai?.removeFromSuperview()
+            self.showErrorAlert(with: error)
         })
     }
 

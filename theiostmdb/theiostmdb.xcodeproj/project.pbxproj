@@ -16,6 +16,7 @@
 		AE33447C1E72C60000997CB5 /* Film.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33447B1E72C60000997CB5 /* Film.swift */; };
 		AE33447E1E72D1DA00997CB5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33447D1E72D1DA00997CB5 /* NetworkService.swift */; };
 		AE3344801E72D26600997CB5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE33447F1E72D26600997CB5 /* Alamofire.framework */; };
+		AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEACC71E78403F00992CDF /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AE33447B1E72C60000997CB5 /* Film.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Film.swift; sourceTree = "<group>"; };
 		AE33447D1E72D1DA00997CB5 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AE33447F1E72D26600997CB5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/theiostmdb-fvjkphqtoxbbovaddardbppgotil/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
+		AEBEACC71E78403F00992CDF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				AE33446C1E72C46400997CB5 /* Assets.xcassets */,
 				AE33446E1E72C46400997CB5 /* LaunchScreen.storyboard */,
 				AE3344711E72C46400997CB5 /* Info.plist */,
+				AEBEACC71E78403F00992CDF /* BaseViewController.swift */,
 			);
 			path = theiostmdb;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */,
 				AE3344681E72C46400997CB5 /* ViewController.swift in Sources */,
 				AE33447C1E72C60000997CB5 /* Film.swift in Sources */,
 				AE33447E1E72D1DA00997CB5 /* NetworkService.swift in Sources */,
