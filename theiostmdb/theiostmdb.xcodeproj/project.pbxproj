@@ -17,6 +17,7 @@
 		AE33447E1E72D1DA00997CB5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE33447D1E72D1DA00997CB5 /* NetworkService.swift */; };
 		AE3344801E72D26600997CB5 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE33447F1E72D26600997CB5 /* Alamofire.framework */; };
 		AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEACC71E78403F00992CDF /* BaseViewController.swift */; };
+		AEBEACCA1E7847DE00992CDF /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBEACC91E7847DE00992CDF /* FilmViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		AE33447D1E72D1DA00997CB5 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		AE33447F1E72D26600997CB5 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../../../Library/Developer/Xcode/DerivedData/theiostmdb-fvjkphqtoxbbovaddardbppgotil/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		AEBEACC71E78403F00992CDF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		AEBEACC91E7847DE00992CDF /* FilmViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		AEBEAC801E78121E00992CDF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AEBEACC91E7847DE00992CDF /* FilmViewModel.swift */,
 			);
 			name = ViewModel;
 			sourceTree = "<group>";
@@ -255,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEBEACCA1E7847DE00992CDF /* FilmViewModel.swift in Sources */,
 				AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */,
 				AE3344681E72C46400997CB5 /* ViewController.swift in Sources */,
 				AE33447C1E72C60000997CB5 /* Film.swift in Sources */,

@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: BaseViewController {
+class ViewController: BaseViewController{
     
     let ai: UIActivityIndicatorView? = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     let separation: CGFloat = 50.0
     var frame: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 100.0)
+    let tableView: UITableView? = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
