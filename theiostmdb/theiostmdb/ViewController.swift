@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: BaseViewController, UITableViewDataSource{
+class ViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate{
     
     let ai: UIActivityIndicatorView? = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     let separation: CGFloat = 50.0
@@ -24,6 +24,7 @@ class ViewController: BaseViewController, UITableViewDataSource{
         self.view.reloadInputViews()
         self.tableView = UITableView.init(frame: self.view.frame)
         self.tableView?.dataSource = self
+        self.tableView?.delegate = self
         self.tableView?.register(FilmViewCell.classForCoder(), forCellReuseIdentifier: "filmCell")
         self.view.addSubview(self.tableView!)
         self.view.addSubview(ai!)
@@ -47,16 +48,23 @@ class ViewController: BaseViewController, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as! FilmViewCell
-        cell.overview?.text = self.filmViewModel.getTextForOverview(at: indexPath.row)
+        if filmViewModel.numberOfRowsInSection(section: 1) > 0{
+            cell.overview?.text = self.filmViewModel.getTextForOverview(at: indexPath.section)
+        }
         return cell
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func numberOfSections(in tableView: UITableView) -> Int{
+        return filmViewModel.numberOfRowsInSection(section: 1)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filmViewModel.numberOfRowsInSection(section: section)
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
+    {
+        return CGFloat(self.filmViewModel.getTextForOverview(at: indexPath.section).lengthOfBytes(using: .utf8))
     }
 
 

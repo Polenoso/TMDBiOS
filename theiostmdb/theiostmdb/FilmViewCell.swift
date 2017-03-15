@@ -14,8 +14,12 @@ class FilmViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.overview = UILabel.init(frame: CGRect(x:self.frame.origin.x,y:self.frame.origin.y,width:self.frame.size.width,height:self.frame.size.height))
-        self.addSubview(overview!)
+        self.overview = UILabel.init(frame: CGRect(x:self.contentView.frame.origin.x,y:self.contentView.frame.origin.y,width:self.contentView.frame.size.width,height:self.contentView.frame.size.height))
+        self.overview?.allowsDefaultTighteningForTruncation = true
+        self.overview?.numberOfLines = .allZeros
+        self.overview?.lineBreakMode = .byTruncatingTail
+        self.overview?.frame = self.layer.frame
+        self.contentView.addSubview(overview!)
     }
     
     required init(coder aDecoder: NSCoder){
