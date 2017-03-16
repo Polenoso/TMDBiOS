@@ -22,7 +22,10 @@ class NetworkService : NSObject {
     func discoverMovies(page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
         Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
                 NSLog("DiscoverRequest Reached")
-                let object = response.result.value as! [String : Any]
+            guard  let object = response.result.value as? [String : Any] else{
+               errorHandler("Error General")
+                return
+            }
             if let results = object["results"] as? [[String: Any]]{
                 var films = [Film]()
                 for i in 0..<results.count{
