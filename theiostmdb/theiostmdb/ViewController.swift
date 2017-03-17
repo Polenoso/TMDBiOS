@@ -51,6 +51,7 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
         if filmViewModel.numberOfRowsInSection(section: 1) > 0{
             cell.overview?.text = self.filmViewModel.getTextForOverview(at: indexPath.section)
             cell.overview?.sizeToFit()
+            cell.reloadInputViews()
         }
         return cell
     }
