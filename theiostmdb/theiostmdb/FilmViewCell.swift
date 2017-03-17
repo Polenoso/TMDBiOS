@@ -36,7 +36,7 @@ class FilmViewCell: UITableViewCell {
         stackView?.addArrangedSubview(photo!)
         stackView?.addArrangedSubview(overview!)
         stackView?.axis = .horizontal
-        stackView?.distribution = .fillProportionally
+        stackView?.distribution = .fillEqually
         stackView?.alignment = .top
         stackView?.spacing = 20.0
         stackView?.translatesAutoresizingMaskIntoConstraints = false
@@ -73,7 +73,7 @@ class FilmViewCell: UITableViewCell {
     }
     
     public static func heightForCell(with overview: String) -> CGFloat{
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 0))
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 0))
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.text = overview

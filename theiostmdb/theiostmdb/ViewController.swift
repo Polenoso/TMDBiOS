@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate{
     
+    var completion: (() -> Void)? = nil
+    var error: ((String) -> Void)? = nil
 
     let separation: CGFloat = 50.0
     var frame: CGRect = CGRect(x: 0.0, y: 0.0, width: 300.0, height: 100.0)
@@ -27,18 +29,20 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
         self.tableView?.register(FilmViewCell.classForCoder(), forCellReuseIdentifier: "filmCell")
         self.tableView?.separatorStyle = .none
         self.view.addSubview(self.tableView!)
+        completion = {Void in
+            self.stopActivityIndicator()
+            self.tableView?.reloadData()
+        }
+        error = {error in
+            self.stopActivityIndicator()
+            self.showErrorAlert(with: error)
+        }
         startActivityIndicator()
     }
     
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(true)
-        self.filmViewModel.fetchDiscoverFilms(completion: {Void in
-            self.stopActivityIndicator()
-            self.tableView?.reloadData()
-        }, errorHandler: {error in
-            self.stopActivityIndicator()
-            self.showErrorAlert(with: error)
-        })
+        self.filmViewModel.fetchDiscoverFilms(completion: self.completion!, errorHandler: self.error!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,8 +77,26 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
         return separation
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section < filmViewModel.numberOfRowsInSection(section: 1) - 1 ? 0.0 : 40.0
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let loadingView = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        loadingView.color = UIColor.black
+        loadingView.startAnimating()
+        return section < filmViewModel.numberOfRowsInSection(section: 1) - 1 ? nil : loadingView
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let nextPage: Bool = filmViewModel.numberOfRowsInSection(section: 1) - 1 <= indexPath.section
+        if(nextPage){
+            filmViewModel.fetchDiscoverFilms(completion:self.completion!, errorHandler: self.error!)
+        }
     }
 
 }
