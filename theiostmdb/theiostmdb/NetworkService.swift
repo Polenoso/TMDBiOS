@@ -21,7 +21,7 @@ class NetworkService : NSObject {
     
     func discoverMovies(page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
         Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
-                NSLog("DiscoverRequest Reached")
+                NSLog("Load discover page: %d", page)
             guard  let object = response.result.value as? [String : Any] else{
                errorHandler("Error General")
                 return
