@@ -13,10 +13,11 @@ class BaseViewController: UIViewController {
     var alertController: UIAlertController? = nil
     let alertHeight:CGFloat = 100.0
     let alertWidth:CGFloat = 300.0
+    let ai: UIActivityIndicatorView? = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ai?.frame = CGRect(x: 0.0, y: 300, width: self.view.frame.size.width, height: 100)
         // Do any additional setup after loading the view.
     }
 
@@ -29,6 +30,17 @@ class BaseViewController: UIViewController {
         self.alertController = UIAlertController.init(title: "Error", message: message, preferredStyle: .alert)
         self.alertController?.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))
         self.present(self.alertController!, animated: true, completion: nil)
+    }
+    
+    func startActivityIndicator(){
+        self.view.addSubview(ai!)
+        ai?.color = UIColor.black
+        ai!.startAnimating()
+    }
+    
+    func stopActivityIndicator(){
+        self.ai!.stopAnimating()
+        self.ai!.removeFromSuperview()
     }
     
 
