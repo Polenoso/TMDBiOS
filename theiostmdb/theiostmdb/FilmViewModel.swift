@@ -33,4 +33,8 @@ class FilmViewModel {
     func getTextForOverview(at: Int) -> String{
         return films[at].overview
     }
+    
+    func getPathForImage(at: Int) -> String{
+        return films[at].poster_path
+    }
 }

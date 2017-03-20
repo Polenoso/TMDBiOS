@@ -54,6 +54,9 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath) as! FilmViewCell
         if filmViewModel.numberOfRowsInSection(section: 1) > 0{
             cell.overview?.text = self.filmViewModel.getTextForOverview(at: indexPath.section)
+            NetworkService.shared.requestImage(path: self.filmViewModel.getPathForImage(at: indexPath.section), completionHandler: {image in
+                cell.photo?.image = image
+            })
             cell.overview?.sizeToFit()
             cell.reloadInputViews()
         }

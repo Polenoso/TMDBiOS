@@ -8,12 +8,13 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 
 class NetworkService : NSObject {
     
     let api_key = "71fbe398f71c98f66552653199f9f592"
     let base_url = "https://api.themoviedb.org/3/"
-    let images_url = "https://image.tmdb.org/t/p/w500/"
+    let images_url = "https://image.tmdb.org/t/p/w300/"
     let discover_url = "discover/movie"
     let search_url = "https://api.themoviedb.org/3/search/movie?api_key=71fbe398f71c98f66552653199f9f592&language=en-US&query=%2$s&page=%3$s&amp;include_adult=false"
     
@@ -42,17 +43,18 @@ class NetworkService : NSObject {
         })
     }
     
-    
-    func convertToDictionary(text: String) -> [[String: Any]]? {
-        if let data = text.data(using: .utf8) {
-            do {
-                return try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]]
-            } catch {
-                print(error.localizedDescription)
+    func requestImage(path: String, completionHandler: @escaping (Image) -> Void){
+        Alamofire.request("\(self.images_url)\(path)").responseImage(imageScale: 1.5, inflateResponseImage: false, completionHandler: {response in
+            guard let image = response.result.value else{
+                print(response.result)
+                return
             }
-        }
-        return nil
+            DispatchQueue.main.async {
+                completionHandler(image)
+            }
+        })
     }
+    
     
     func discoverParams(page : Int) -> Dictionary<String,AnyObject>{
         let params: Dictionary<String, AnyObject> = [
