@@ -32,6 +32,7 @@ class FilmViewCell: UITableViewCell {
         //photo
         self.photo?.backgroundColor = UIColor.blue
         self.photo?.layer.cornerRadius = 15
+        self.photo?.clipsToBounds = true
         self.stackView = UIStackView(frame: CGRect(x: 0.0, y: 0.0, width: self.contentView.frame.size.width, height: FilmViewCell.heightForCell(with: "")))
         stackView?.addArrangedSubview(photo!)
         stackView?.addArrangedSubview(overview!)
