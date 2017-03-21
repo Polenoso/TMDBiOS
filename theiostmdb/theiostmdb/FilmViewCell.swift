@@ -12,6 +12,9 @@ class FilmViewCell: UITableViewCell {
     
     static let photoWidth: CGFloat = 150
     static let photoHeight: CGFloat = 200
+    static let titleSize: CGFloat = 16.0
+    static let overviewSize: CGFloat = 8.0
+    static let releaseYear: CGFloat = 8.0
     
     @IBOutlet var overview: UILabel?
     @IBOutlet var photo: UIImageView?
