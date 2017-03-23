@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B70138E0A4B2D2BF30B8713 /* Pods_theiostmdb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */; };
+		751DE3C31E83FB6500684EC0 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DE3C21E83FB6500684EC0 /* ContainerViewController.swift */; };
+		751DE3C61E841AFA00684EC0 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */; };
+		751DE3C71E841AFA00684EC0 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */; };
 		AE3344661E72C46400997CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344651E72C46400997CB5 /* AppDelegate.swift */; };
 		AE3344681E72C46400997CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344671E72C46400997CB5 /* ViewController.swift */; };
 		AE33446B1E72C46400997CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3344691E72C46400997CB5 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		32A74015F79131E9FB3AED2D /* Pods-theiostmdb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theiostmdb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb.debug.xcconfig"; sourceTree = "<group>"; };
 		6918F77D5A0F94F6F77A0B9A /* Pods-theiostmdb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-theiostmdb.release.xcconfig"; path = "Pods/Target Support Files/Pods-theiostmdb/Pods-theiostmdb.release.xcconfig"; sourceTree = "<group>"; };
+		751DE3C21E83FB6500684EC0 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
+		751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
 		93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theiostmdb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344621E72C46400997CB5 /* theiostmdb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theiostmdb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344651E72C46400997CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,12 +94,15 @@
 				AE3344781E72C58D00997CB5 /* Model */,
 				AE3344771E72C57C00997CB5 /* NetworkService */,
 				AE3344651E72C46400997CB5 /* AppDelegate.swift */,
+				751DE3C21E83FB6500684EC0 /* ContainerViewController.swift */,
 				AE3344671E72C46400997CB5 /* ViewController.swift */,
 				AE3344691E72C46400997CB5 /* Main.storyboard */,
 				AE33446C1E72C46400997CB5 /* Assets.xcassets */,
 				AE33446E1E72C46400997CB5 /* LaunchScreen.storyboard */,
 				AE3344711E72C46400997CB5 /* Info.plist */,
 				AEBEACC71E78403F00992CDF /* BaseViewController.swift */,
+				751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */,
+				751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */,
 			);
 			path = theiostmdb;
 			sourceTree = "<group>";
@@ -200,6 +209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				751DE3C71E841AFA00684EC0 /* SidePanelViewController.xib in Resources */,
 				AE3344701E72C46400997CB5 /* LaunchScreen.storyboard in Resources */,
 				AE33446D1E72C46400997CB5 /* Assets.xcassets in Resources */,
 				AE33446B1E72C46400997CB5 /* Main.storyboard in Resources */,
@@ -263,6 +273,8 @@
 			files = (
 				AEBEACCA1E7847DE00992CDF /* FilmViewModel.swift in Sources */,
 				AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */,
+				751DE3C31E83FB6500684EC0 /* ContainerViewController.swift in Sources */,
+				751DE3C61E841AFA00684EC0 /* SidePanelViewController.swift in Sources */,
 				AE3344681E72C46400997CB5 /* ViewController.swift in Sources */,
 				AEBEACCC1E78504300992CDF /* FilmViewCell.swift in Sources */,
 				AE33447C1E72C60000997CB5 /* Film.swift in Sources */,

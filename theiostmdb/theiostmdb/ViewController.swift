@@ -8,7 +8,16 @@
 
 import UIKit
 
+@objc
+protocol CenterViewControllerDelegate {
+    @objc optional func toggleLeftPanel()
+    @objc optional func toggleRightPanel()
+    @objc optional func collapseSidePanels()
+}
+
 class ViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    var delegate: CenterViewControllerDelegate?
     
     var completion: (() -> Void)? = nil
     var error: ((String) -> Void)? = nil
@@ -20,10 +29,13 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.        
-        self.view.backgroundColor = UIColor.black
+        // Do any additional setup after loading the view, typically from a nib.
+        let menuButton: UIBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(ViewController.toggleMenu(sender:)))
+        self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        self.navigationItem.title = "TMDB"
         self.view.reloadInputViews()
         self.tableView = UITableView.init(frame: self.view.frame)
+        self.tableView?.backgroundColor = UIColor.white
         self.tableView?.dataSource = self
         self.tableView?.delegate = self
         self.tableView?.register(FilmViewCell.classForCoder(), forCellReuseIdentifier: "filmCell")
@@ -100,6 +112,10 @@ class ViewController: BaseViewController, UITableViewDataSource, UITableViewDele
         if(nextPage){
             filmViewModel.fetchDiscoverFilms(completion:self.completion!, errorHandler: self.error!)
         }
+    }
+    
+    func toggleMenu(sender: UIBarButtonItem){
+        delegate?.toggleLeftPanel!()
     }
 
 }
