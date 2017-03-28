@@ -12,13 +12,12 @@ import QuartzCore
 enum SlideOutState {
     case BothCollapsed
     case LeftPanelExpanded
-    case RightPanelExpanded
 }
 
 class ContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
-    var centerViewController: ViewController!
+    var centerViewController: BaseViewController!
     var currentState: SlideOutState = .BothCollapsed {
         didSet {
             let shouldShowShadow = currentState != .BothCollapsed
@@ -53,10 +52,6 @@ extension ContainerViewController: CenterViewControllerDelegate{
         animateLeftPanel(shouldExpand: notAlreadyExpanded)
     }
     
-    func toggleRightPanel() {
-        
-    }
-    
     func addLeftPanelViewController(){
         if(leftViewController == nil){
             leftViewController = SidePanelViewController()
@@ -66,14 +61,11 @@ extension ContainerViewController: CenterViewControllerDelegate{
     }
     
     func addchildSidePanelController(sidePanelController: SidePanelViewController){
+        sidePanelController.delegate = centerViewController
         view.insertSubview(sidePanelController.view, at: 0)
         
         addChildViewController(sidePanelController)
         sidePanelController.didMove(toParentViewController: self)
-    }
-    
-    func addRightPanelViewController(){
-        
     }
     
     func animateLeftPanel(shouldExpand: Bool){
@@ -107,19 +99,3 @@ extension ContainerViewController: CenterViewControllerDelegate{
     }
 }
 
-//private extension UIStoryboard {
-//  class func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: Bundle.main) }
-//  
-//  class func leftViewController() -> SidePanelViewController? {
-//    return mainStoryboard().instantiateViewController(withIdentifier: "LeftViewController") as? SidePanelViewController
-//  }
-//  
-//  class func rightViewController() -> SidePanelViewController? {
-//    return mainStoryboard().instantiateViewController(withIdentifier: "RightViewController") as? SidePanelViewController
-//  }
-//  
-//  class func centerViewController() -> CenterViewController? {
-//    return mainStoryboard().instantiateViewController(withIdentifier: "CenterViewController") as? CenterViewController
-//  }
-//  
-//}

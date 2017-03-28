@@ -17,11 +17,11 @@ class NetworkService : NSObject {
     let images_url = "https://image.tmdb.org/t/p/w300/"
     let discover_url = "discover/movie"
     let search_url = "https://api.themoviedb.org/3/search/movie?api_key=71fbe398f71c98f66552653199f9f592&language=en-US&query=%2$s&page=%3$s&amp;include_adult=false"
-    
+    var request: Alamofire.Request?
     static let shared : NetworkService = NetworkService()
     
     func discoverMovies(page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
-        Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
+        request = Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
                 NSLog("Load discover page: %d", page)
             guard  let object = response.result.value as? [String : Any] else{
                errorHandler("Error General")
@@ -44,7 +44,7 @@ class NetworkService : NSObject {
     }
     
     func requestImage(path: String, completionHandler: @escaping (Image) -> Void){
-        Alamofire.request("\(self.images_url)\(path)").responseImage(imageScale: 1.5, inflateResponseImage: false, completionHandler: {response in
+        request = Alamofire.request("\(self.images_url)\(path)").responseImage(imageScale: 1.5, inflateResponseImage: false, completionHandler: {response in
             guard let image = response.result.value else{
                 print(response.result)
                 return
@@ -65,6 +65,10 @@ class NetworkService : NSObject {
         "page" : String(page) as AnyObject
             ]
         return params
+    }
+    
+    func stopRequests(){
+        request?.cancel()
     }
     
 }

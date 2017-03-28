@@ -8,7 +8,14 @@
 
 import UIKit
 
+@objc
+protocol CenterViewControllerDelegate {
+    @objc optional func toggleLeftPanel()
+}
+
 class BaseViewController: UIViewController {
+    
+    var delegate: CenterViewControllerDelegate?
     
     var alertController: UIAlertController? = nil
     let alertHeight:CGFloat = 100.0
@@ -18,6 +25,9 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ai?.frame = CGRect(x: 0.0, y: 300, width: self.view.frame.size.width, height: 100)
+        let menuButton: UIBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(BaseViewController.toggleMenu(sender:)))
+        self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        self.navigationItem.title = "TMDB"
         // Do any additional setup after loading the view.
     }
 
@@ -43,6 +53,10 @@ class BaseViewController: UIViewController {
         self.ai!.removeFromSuperview()
     }
     
+    func toggleMenu(sender: UIBarButtonItem){
+        delegate?.toggleLeftPanel!()
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -54,4 +68,15 @@ class BaseViewController: UIViewController {
     }
     */
 
+}
+
+extension BaseViewController: SidePanelViewControllerDelegate{
+    func optionSelected(vc: UIViewController) {
+        if(self.ai?.isAnimating)!{
+            self.stopActivityIndicator()
+            NetworkService.shared.stopRequests();
+        }
+        delegate?.toggleLeftPanel!()
+        showErrorAlert(with: "Selected")
+    }
 }
