@@ -73,6 +73,10 @@ extension SidePanelViewController: UITableViewDelegate, UITableViewDataSource{
         switch indexPath.row {
         case 0:
             delegate?.optionSelected(vc: ViewController())
+            break
+        case 1:
+            let svc = SearchViewController(nibName: "SearchViewController", bundle: nil)
+            delegate?.optionSelected(vc: svc)
         default:
             return
         }

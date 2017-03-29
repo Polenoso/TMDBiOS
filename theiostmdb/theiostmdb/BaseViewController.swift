@@ -11,6 +11,7 @@ import UIKit
 @objc
 protocol CenterViewControllerDelegate {
     @objc optional func toggleLeftPanel()
+    @objc optional func showViewController(vc: UIViewController)
 }
 
 class BaseViewController: UIViewController {
@@ -76,7 +77,7 @@ extension BaseViewController: SidePanelViewControllerDelegate{
             self.stopActivityIndicator()
             NetworkService.shared.stopRequests();
         }
+        delegate?.showViewController!(vc: vc)
         delegate?.toggleLeftPanel!()
-        showErrorAlert(with: "Selected")
     }
 }

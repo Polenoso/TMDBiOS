@@ -18,6 +18,7 @@ class ContainerViewController: UIViewController {
     
     var centerNavigationController: UINavigationController!
     var centerViewController: BaseViewController!
+    var nextViewController: BaseViewController?
     var currentState: SlideOutState = .BothCollapsed {
         didSet {
             let shouldShowShadow = currentState != .BothCollapsed
@@ -96,6 +97,13 @@ extension ContainerViewController: CenterViewControllerDelegate{
         }else{
             centerNavigationController.view.layer.shadowOpacity = 0.0
         }
+    }
+    
+    func showViewController(vc: UIViewController){
+        nextViewController = vc as? BaseViewController
+        nextViewController?.delegate = self
+        self.centerViewController = nextViewController
+        centerNavigationController.show(nextViewController!, sender: self)
     }
 }
 

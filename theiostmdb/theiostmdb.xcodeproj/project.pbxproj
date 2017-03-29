@@ -12,6 +12,8 @@
 		751DE3C61E841AFA00684EC0 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */; };
 		751DE3C71E841AFA00684EC0 /* SidePanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */; };
 		7552AE2C1E8ABB63003738B3 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7552AE2B1E8ABB63003738B3 /* OptionCell.xib */; };
+		75608E011E8B9C650067754E /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75608DFF1E8B9C650067754E /* SearchViewController.swift */; };
+		75608E021E8B9C650067754E /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75608E001E8B9C650067754E /* SearchViewController.xib */; };
 		AE3344661E72C46400997CB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344651E72C46400997CB5 /* AppDelegate.swift */; };
 		AE3344681E72C46400997CB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3344671E72C46400997CB5 /* ViewController.swift */; };
 		AE33446B1E72C46400997CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE3344691E72C46400997CB5 /* Main.storyboard */; };
@@ -32,6 +34,8 @@
 		751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidePanelViewController.xib; sourceTree = "<group>"; };
 		7552AE2B1E8ABB63003738B3 /* OptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
+		75608DFF1E8B9C650067754E /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		75608E001E8B9C650067754E /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		93994B95D987E5AB2A5010F8 /* Pods_theiostmdb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_theiostmdb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344621E72C46400997CB5 /* theiostmdb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = theiostmdb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE3344651E72C46400997CB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 				AE3344671E72C46400997CB5 /* ViewController.swift */,
 				AEBEACC71E78403F00992CDF /* BaseViewController.swift */,
 				751DE3C41E841AFA00684EC0 /* SidePanelViewController.swift */,
+				75608DFF1E8B9C650067754E /* SearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -114,6 +119,7 @@
 				AE3344711E72C46400997CB5 /* Info.plist */,
 				751DE3C51E841AFA00684EC0 /* SidePanelViewController.xib */,
 				7552AE2B1E8ABB63003738B3 /* OptionCell.xib */,
+				75608E001E8B9C650067754E /* SearchViewController.xib */,
 			);
 			path = theiostmdb;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			files = (
 				751DE3C71E841AFA00684EC0 /* SidePanelViewController.xib in Resources */,
 				AE3344701E72C46400997CB5 /* LaunchScreen.storyboard in Resources */,
+				75608E021E8B9C650067754E /* SearchViewController.xib in Resources */,
 				7552AE2C1E8ABB63003738B3 /* OptionCell.xib in Resources */,
 				AE33446D1E72C46400997CB5 /* Assets.xcassets in Resources */,
 				AE33446B1E72C46400997CB5 /* Main.storyboard in Resources */,
@@ -283,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75608E011E8B9C650067754E /* SearchViewController.swift in Sources */,
 				AEBEACCA1E7847DE00992CDF /* FilmViewModel.swift in Sources */,
 				AEBEACC81E78403F00992CDF /* BaseViewController.swift in Sources */,
 				751DE3C31E83FB6500684EC0 /* ContainerViewController.swift in Sources */,

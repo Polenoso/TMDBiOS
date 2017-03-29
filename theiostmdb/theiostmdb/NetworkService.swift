@@ -16,15 +16,38 @@ class NetworkService : NSObject {
     let base_url = "https://api.themoviedb.org/3/"
     let images_url = "https://image.tmdb.org/t/p/w300/"
     let discover_url = "discover/movie"
-    let search_url = "https://api.themoviedb.org/3/search/movie?api_key=71fbe398f71c98f66552653199f9f592&language=en-US&query=%2$s&page=%3$s&amp;include_adult=false"
+    let search_url = "search/movie"
     var request: Alamofire.Request?
     static let shared : NetworkService = NetworkService()
     
     func discoverMovies(page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
-        request = Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).responseJSON(completionHandler:{ (response) in
+        request = Alamofire.request("\(self.base_url)\(self.discover_url)", method: .get,parameters: self.discoverParams(page: page),encoding: URLEncoding.default, headers:nil).validate(statusCode: 200..<300).responseJSON(completionHandler:{ (response) in
                 NSLog("Load discover page: %d", page)
             guard  let object = response.result.value as? [String : Any] else{
-               errorHandler("Error General")
+               print("Error General / Request Cancel")
+                return
+            }
+            if let results = object["results"] as? [[String: Any]]{
+                var films = [Film]()
+                for i in 0..<results.count{
+                    films.append(Film.init(dictionary: results[i] as [String : AnyObject]))
+                }
+                DispatchQueue.main.async {
+                    print("Response thread: \(Thread.current) is main thread: \(Thread.isMainThread)")
+                    completionHandler(films)
+                }
+            }else{
+                errorHandler(String(describing: response.result.value));
+            }
+            
+        })
+    }
+    
+    func searchMovies(query: String, page: Int, completionHandler: @escaping ([Film]) -> Void, errorHandler: @escaping (String) -> Void){
+        request = Alamofire.request("\(self.base_url)\(self.search_url)", method: .get,parameters: self.searchParams(query: query, page: page),encoding: URLEncoding.default, headers:nil).validate(statusCode: 200..<300).responseJSON(completionHandler:{ (response) in
+            NSLog("Load discover page: %d", page)
+            guard  let object = response.result.value as? [String : Any] else{
+                print("Error General / Request cancelled")
                 return
             }
             if let results = object["results"] as? [[String: Any]]{
@@ -67,8 +90,20 @@ class NetworkService : NSObject {
         return params
     }
     
+    func searchParams(query: String, page: Int) -> Dictionary<String,AnyObject>{
+        let params: Dictionary<String, AnyObject> = [
+            "api_key" : self.api_key as AnyObject,
+            "language" : "en-US" as AnyObject,
+            "sort_by" : "popularity.desc" as AnyObject,
+            "include_adult" : "false" as AnyObject,
+            "page" : String(page) as AnyObject,
+            "query" : query as AnyObject
+        ]
+        return params
+    }
+    
     func stopRequests(){
-        request?.cancel()
+        request!.cancel()
     }
     
 }
