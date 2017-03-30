@@ -29,6 +29,8 @@ class BaseViewController: UIViewController {
         let menuButton: UIBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(BaseViewController.toggleMenu(sender:)))
         self.navigationItem.setLeftBarButton(menuButton, animated: false)
         self.navigationItem.title = "TMDB"
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaseViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
 
@@ -55,9 +57,13 @@ class BaseViewController: UIViewController {
     }
     
     func toggleMenu(sender: UIBarButtonItem){
+        dismissKeyboard()
         delegate?.toggleLeftPanel!()
     }
     
+    func dismissKeyboard(){
+        self.view.endEditing(true)
+    }
 
     /*
     // MARK: - Navigation

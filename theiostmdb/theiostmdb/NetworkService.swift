@@ -25,6 +25,7 @@ class NetworkService : NSObject {
                 NSLog("Load discover page: %d", page)
             guard  let object = response.result.value as? [String : Any] else{
                print("Error General / Request Cancel")
+                print(response.result)
                 return
             }
             if let results = object["results"] as? [[String: Any]]{
@@ -48,6 +49,7 @@ class NetworkService : NSObject {
             NSLog("Load discover page: %d", page)
             guard  let object = response.result.value as? [String : Any] else{
                 print("Error General / Request cancelled")
+                print(response.result)
                 return
             }
             if let results = object["results"] as? [[String: Any]]{

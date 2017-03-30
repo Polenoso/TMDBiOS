@@ -46,7 +46,11 @@ class SearchViewController: ViewController {
 
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        startActivityIndicator()
         loadingError = false
-        filmViewModel.fetchSearchFilms(query: searchText, completion: completion!, errorHandler: error!)
+        filmViewModel.fetchSearchFilms(query: searchText, completion: completion!, errorHandler: {error in
+            self.stopActivityIndicator()
+            self.showErrorAlert(with: error)
+        })
     }
 }
